@@ -8,5 +8,8 @@ public class Principal {
         Codigo_Optenido Codigo_Optenido = new Codigo_Optenido();
         String Codigo = Codigo_Optenido.ObtenerCodigo();
         System.out.println(Codigo);
+
+
+        new Parser(Codigo);
     }
 }

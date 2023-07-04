@@ -14,7 +14,7 @@ public class Parser {
     private Vector tablaSimbolos = new Vector();
     private final Scanner s;
     final int ifx=1, thenx=2, elsex=3, beginx=4, endx=5, printx=6, semi=7,
-            sum=8, igual=9, igualdad=10, intx=11, floatx=12, id=13;
+            sum=8, igual=9, igualdad=10, intx=11, floatx=12, bytetx=13 ,id=14;
     private int tknCode, tokenEsperado;
     private String token, tokenActual, log;
     
@@ -70,7 +70,7 @@ public class Parser {
     
     public Declarax D() {
       if(tknCode == id) {
-        if(stringToCode(s.getToken(false)) == intx || stringToCode(s.getToken(false)) == floatx) {
+        if(stringToCode(s.getToken(false)) == intx || stringToCode(s.getToken(false)) == floatx || stringToCode(s.getToken(false)) == bytetx) {
           String s = token;
           eat(id); Typex t = T(); eat(semi); D();
           tablaSimbolos.addElement(new Declarax(s, t));
@@ -94,9 +94,13 @@ public class Parser {
         else if(tknCode == floatx) {
             eat(floatx);
             return new Typex("float");
-        }
-        else{
-            error(token, "(int / float)");
+
+        }else if(tknCode == bytetx) {
+            eat(bytetx);
+            return new Typex("byte");
+
+        }else{
+            error(token, "(int / float / byte)");
             return null;
         }
     }
@@ -224,7 +228,8 @@ public class Parser {
             case "==": codigo=10; break;
             case "int": codigo=11; break;
             case "float": codigo=12; break;
-            default: codigo=13; break;
+            case "byte": codigo=13; break;
+            default: codigo=14; break;
         }
         return codigo;
     }
@@ -261,11 +266,11 @@ public class Parser {
             dx = (Declarax)tablaSimbolos.get(i);
             variable[i] = dx.s1;
             tipo[i] = dx.s2.getTypex();                   
-            System.out.println(variable[i] + ": "+ tipo[i]); //Imprime tabla de símbolos por consola.
+            System.out.println(i+") " + variable[i] + ": "+ tipo[i]); //Imprime tabla de símbolos por consola.
         }
         
-        ArrayUtils.reverse(variable);
-        ArrayUtils.reverse(tipo);
+        //ArrayUtils.reverse(variable);
+        //ArrayUtils.reverse(tipo);
         
         System.out.println("-----------------\n");
     }
@@ -296,11 +301,18 @@ public class Parser {
         for(int i=0; i<tablaSimbolos.size() ; i++) {
           elementoCompara1 = (Declarax) tablaSimbolos.elementAt(i);
           if(s1.equals(elementoCompara1.s1)) {
-            System.out.println("Se encontró el primer elemento en la tabla de símbolos...");
+            System.out.println("Se encontró el primer elemento en la tabla de símbolos..."  + elementoCompara1.s1 + " " +tipo[i] );
+
             for(int j=0; j<tablaSimbolos.size() ; j++) {
               elementoCompara2 = (Declarax) tablaSimbolos.elementAt(j);
+
+
               if(s2.equals(elementoCompara2.s1)) {
-                System.out.println("Se encontró el segundo elemento en la tabla de símbolos...");
+                System.out.println("Se encontró el segundo elemento en la tabla de símbolos..." + elementoCompara2.s1 + " " + tipo[j]);
+
+                System.out.println(tipo[i] + " "+ tipo[j] );
+
+                    //modificar este if para que permita byte y int
                 if(tipo[i].equals(tipo[j])) {
                   termino = true;
                   break;
@@ -319,6 +331,10 @@ public class Parser {
             break;
           }
         }
+        //for(int j=0; j<tablaSimbolos.size() ; j++) {
+          //  System.out.println(j+")"+ tipo[j]);
+        //}
+
     }
     
     public void byteCode(String tipo, String s1,String s2){

@@ -1,0 +1,23 @@
+1)Parser
+    en declaracion de variable movi el numero de id a 14 y deje el byte en 13
+    modifique el metodo Typex T
+        le agregre un else if bytetx
+
+    metodo stringToCode
+        agrege un case byte con el codigo 13 y movi el defaul que seria el id a 14
+
+    meotod D
+        en el segundo if meterle un nuevo
+            stringToCode(s.getToken(false)) para bytetx
+
+
+2)Scanner  agregre byte en en string reservadas
+
+# Definimos una función para invertir un array
+def invertir_array(arr):
+    return arr[::-1]
+
+# Ejemplo de uso
+array_original = [1, 2, 3, 4, 5]
+array_invertido = invertir_array(array_original)
+print(array_invertido)
