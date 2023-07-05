@@ -10,14 +10,11 @@
         en el segundo if meterle un nuevo
             stringToCode(s.getToken(false)) para bytetx
 
+    metodo createtable
+        comentar
+            //ArrayUtils.reverse(variable);
+            //ArrayUtils.reverse(tipo);
+
 
 2)Scanner  agregre byte en en string reservadas
 
-# Definimos una función para invertir un array
-def invertir_array(arr):
-    return arr[::-1]
-
-# Ejemplo de uso
-array_original = [1, 2, 3, 4, 5]
-array_invertido = invertir_array(array_original)
-print(array_invertido)
