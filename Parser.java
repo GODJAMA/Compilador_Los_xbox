@@ -313,7 +313,7 @@ public class Parser {
                 System.out.println(tipo[i] + " "+ tipo[j] );
 
                     //modificar este if para que permita byte y int
-                if(tipo[i].equals(tipo[j])) {
+                  if(tipo[i].equals(tipo[j]) || (tipo[i] != "float" && tipo[j]!="float")){
                   termino = true;
                   break;
                 }else{
