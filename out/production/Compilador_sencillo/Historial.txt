@@ -18,3 +18,8 @@
 
 2)Scanner  agregre byte en en string reservadas
 
+----------------------------------------
+Tittle while y do
+1)Scanner
+    agregrar en el string reservadas
+        "while" , "do"

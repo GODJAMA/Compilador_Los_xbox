@@ -1,5 +1,5 @@
 y float ;
-z int ;
+z byte ;
 
 if x == y then
 	begin
