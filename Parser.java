@@ -137,9 +137,11 @@ public class Parser {
                 return new Printx(ex);
 
             case whilex:
-                eat(whilex); E();
-                eat(dox); S();
-                return  null;
+                eat(whilex);
+                Expx e2 = E();
+                eat(dox);
+                Statx s3 = S();
+                return  new Whilex((Comparax)e2,s3);
 
 
             default: error(token, "(if | begin | id | print)");

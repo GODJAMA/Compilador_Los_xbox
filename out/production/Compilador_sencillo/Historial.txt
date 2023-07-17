@@ -23,3 +23,19 @@ Tittle while y do
 1)Scanner
     agregrar en el string reservadas
         "while" , "do"
+2) Parser
+    declarar las variables
+        whilex = 15
+        dox = 16
+
+    metodo stringToCode
+        agregar el case
+            while
+            do
+
+    metodo s
+        agregar case
+            while
+                eat(whilex); E();
+                eat(dox); S();
+                return  null;
