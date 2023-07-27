@@ -42,6 +42,10 @@ public class Parser {
         token = s.getToken(true);
         tknCode = stringToCode(token);
          p = P();
+
+        String bytecode = getBytecode();
+        System.out.println("\nBytecode generado: ");
+        System.out.println(bytecode);
     }
     
     //INICIO DE ANÁLISIS SINTÁCTICO
@@ -390,7 +394,7 @@ public class Parser {
                 pilaBC[cntBC+3] = cntIns+4 + ": istore_" + pos1;
                 cntIns++;
                 jmp2 = cntBC;
-            break;
+                break;
         }
     }
     
@@ -402,7 +406,7 @@ public class Parser {
         pilaBC[cntBC] = ins;
         cntBC++;
     }
-    
+
     public String getBytecode() {
         String JBC = "";
         for(int i=0; i<pilaBC.length; i++) {
@@ -411,6 +415,6 @@ public class Parser {
             }
         }
         return JBC;
-    }    
+    }
 }
 

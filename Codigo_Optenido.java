@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Codigo_Optenido {
     public static String ObtenerCodigo() throws IOException {
-        File doc = new File("C:\\Users\\DerianML\\IdeaProjects\\Compilador_Los_xbox\\Archivos_Codigo\\prueba4_incorrecta.txt");
+        File doc = new File("C:\\Users\\Jose\\IdeaProjects\\Compilador_Los_xbox-master\\Archivos_Codigo\\prueba4_incorrecta.txt");
         BufferedReader buf = new BufferedReader(new FileReader(doc));
         String lectura, Codigo = "";
         int contador = 0;
